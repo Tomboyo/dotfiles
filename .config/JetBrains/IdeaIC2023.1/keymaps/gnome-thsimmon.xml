@@ -1,0 +1,80 @@
+<keymap version="1" name="gnome-thsimmon" parent="Default for GNOME">
+  <action id="ActivateTerminalToolWindow">
+    <keyboard-shortcut first-keystroke="alt f12" />
+    <keyboard-shortcut first-keystroke="ctrl back_quote" />
+  </action>
+  <action id="CloseAllEditorsButActive">
+    <keyboard-shortcut first-keystroke="shift ctrl w" />
+  </action>
+  <action id="CloseContent">
+    <keyboard-shortcut first-keystroke="ctrl f4" />
+    <keyboard-shortcut first-keystroke="ctrl w" />
+  </action>
+  <action id="CollapseAllRegions">
+    <keyboard-shortcut first-keystroke="shift ctrl subtract" />
+  </action>
+  <action id="EditorBackwardParagraph">
+    <keyboard-shortcut first-keystroke="page_up" />
+  </action>
+  <action id="EditorBackwardParagraphWithSelection">
+    <keyboard-shortcut first-keystroke="shift page_up" />
+  </action>
+  <action id="EditorChooseLookupItem">
+    <keyboard-shortcut first-keystroke="ctrl enter" />
+  </action>
+  <action id="EditorCloneCaretAbove">
+    <keyboard-shortcut first-keystroke="shift alt up" />
+  </action>
+  <action id="EditorCloneCaretBelow">
+    <keyboard-shortcut first-keystroke="shift alt down" />
+  </action>
+  <action id="EditorDown">
+    <keyboard-shortcut first-keystroke="down" />
+    <keyboard-shortcut first-keystroke="ctrl n" />
+  </action>
+  <action id="EditorForwardParagraph">
+    <keyboard-shortcut first-keystroke="page_down" />
+  </action>
+  <action id="EditorForwardParagraphWithSelection">
+    <keyboard-shortcut first-keystroke="shift page_down" />
+  </action>
+  <action id="EditorMoveToPageBottom" />
+  <action id="EditorMoveToPageTop" />
+  <action id="EditorNextWordInDifferentHumpsMode">
+    <keyboard-shortcut first-keystroke="alt right" />
+  </action>
+  <action id="EditorPageDown" />
+  <action id="EditorPageDownWithSelection" />
+  <action id="EditorPageUp" />
+  <action id="EditorPageUpWithSelection" />
+  <action id="EditorPreviousWordInDifferentHumpsMode">
+    <keyboard-shortcut first-keystroke="alt left" />
+  </action>
+  <action id="EditorSelectWord">
+    <keyboard-shortcut first-keystroke="alt e" />
+  </action>
+  <action id="EditorUnSelectWord" />
+  <action id="EditorUp">
+    <keyboard-shortcut first-keystroke="up" />
+    <keyboard-shortcut first-keystroke="ctrl p" />
+  </action>
+  <action id="ExpandRegion">
+    <keyboard-shortcut first-keystroke="ctrl add" />
+    <keyboard-shortcut first-keystroke="ctrl equals" />
+    <keyboard-shortcut first-keystroke="shift ctrl minus" />
+  </action>
+  <action id="GuiDesigner.ShrinkSelection" />
+  <action id="IncrementalSearch">
+    <keyboard-shortcut first-keystroke="alt f" />
+  </action>
+  <action id="NextTab">
+    <keyboard-shortcut first-keystroke="ctrl page_down" />
+  </action>
+  <action id="PreviousTab">
+    <keyboard-shortcut first-keystroke="ctrl page_up" />
+  </action>
+  <action id="QuickChangeScheme" />
+  <action id="SmartSelect" />
+  <action id="SmartUnSelect" />
+  <action id="UsageFiltering.WriteAccess" />
+</keymap>

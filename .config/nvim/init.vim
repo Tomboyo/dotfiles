@@ -9,3 +9,5 @@ call plug#end()
 set scrolloff=5
 set incsearch
 set shiftwidth=2 smarttab
+
+set number relativenumber

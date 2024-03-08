@@ -74,6 +74,7 @@
     <keyboard-shortcut first-keystroke="ctrl page_up" />
   </action>
   <action id="QuickChangeScheme" />
+  <action id="SearchEverywhere.NextTab" />
   <action id="SmartSelect" />
   <action id="SmartUnSelect" />
   <action id="UsageFiltering.WriteAccess" />

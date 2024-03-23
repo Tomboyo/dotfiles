@@ -6,6 +6,9 @@ Plug 'vim-scripts/argtextobj.vim'
 Plug 'tpope/vim-surround'
 call plug#end()
 
+" Make the current working directory follow the active buffer
+set autochdir
+
 set scrolloff=5
 set incsearch
 set shiftwidth=2 smarttab

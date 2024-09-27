@@ -8,6 +8,13 @@ Plug 'tommcdo/vim-exchange'
 Plug 'vim-scripts/argtextobj.vim'
 Plug 'tpope/vim-surround'
 Plug 'dense-analysis/ale'
+" Let plugins hook into '.' (repeat)
+Plug 'tpope/vim-repeat'
+" For S-expression manipulation (clojure): https://github.com/guns/vim-sexp
+Plug 'guns/vim-sexp'
+" Clojure cidr-nrepl integration
+Plug 'tpope/vim-fireplace'
+
 call plug#end()
 
 " ALE

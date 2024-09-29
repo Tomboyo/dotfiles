@@ -21,5 +21,9 @@ require("lazy").setup({
   checker = { enabled = true },
 })
 
+require("vscode").load("dark")
+
 require("leap").create_default_mappings()
+vim.api.nvim_set_hl(0, 'LeapBackdrop', { link = 'Comment' })
+vim.api.nvim_set_hl(0, 'LeapLabel', { link = 'Search' })
 

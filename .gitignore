@@ -1,5 +1,10 @@
 *
 
+!.config/
+!.config/nvim-wsl-magic
+!.config/nvim-wsl-magic/**
+!.config/nvim-bak
+!.config/nvim-bak/**
+
 !.config/JetBrains/IdeaIC2023.1/keymaps/gnome-thsimmon.xml
-!.config/nvim/init.vim
 

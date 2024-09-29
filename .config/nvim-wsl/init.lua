@@ -2,9 +2,11 @@
 -- https://github.com/folke/lazy.nvim
 -- https://lazy.folke.io/installation
 require("config.lazy-bootstrap")
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+vim.o.expandtab = true
+vim.o.tabstop = 2    -- spaces per tab
+vim.o.shiftwidth = 2 -- spaces per indent level
 
 -- Setup lazy.nvim
 -- Make sure to setup `mapleader` and `maplocalleader` before

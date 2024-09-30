@@ -23,7 +23,18 @@ require("lazy").setup({
       "Mofiqul/vscode.nvim",
       "Olical/conjure",
       "williamboman/mason.nvim", -- installs language servers (:MasonInstall my-lsp)
+      "tpope/vim-surround", -- editing tool for dealing with parens, html tags, etc.
       "nvim-treesitter/nvim-treesitter", -- language parsing support, used by conjure but not a hard dep
+      {
+        "neovim/nvim-lspconfig", -- configuration default for various language servers
+        'hrsh7th/cmp-nvim-lsp', -- cmp-* is for LSP completion support.
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-cmdline',
+        'hrsh7th/nvim-cmp',
+        'SirVer/ultisnips', -- snip support (the thing where "today" turns into a date-time in the editor)
+        'quangnguyen30192/cmp-nvim-ultisnips', -- interop with cmp
+      },
       {
         "clojure-vim/vim-jack-in", -- provides :Clj command to start nREPL server
         dependencies = {
@@ -42,7 +53,14 @@ require("lazy").setup({
 require("vscode").load("dark")
 require("mason").setup()
 
-require("leap").create_default_mappings()
+-- Leap configs
+-- These three are the same as require("leap").create_default_mappings()
+-- Note that s, S, and gs clobber some tpope/vim-surround keybinds. (Not sure how to fix atm.)
+vim.keymap.set({'n', 'x', 'o'}, 's',  '<Plug>(leap-forward)')
+vim.keymap.set({'n', 'x', 'o'}, 'S',  '<Plug>(leap-backward)')
+vim.keymap.set({'n', 'x', 'o'}, 'gs', '<Plug>(leap-from-window)')
 vim.api.nvim_set_hl(0, 'LeapBackdrop', { link = 'Comment' })
 vim.api.nvim_set_hl(0, 'LeapLabel', { link = 'Search' })
+
+require("config.nvim-cmp")
 

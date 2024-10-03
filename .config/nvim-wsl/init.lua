@@ -15,13 +15,17 @@ require("lazy").setup({
   spec = {
     {
       {
-        "ggandor/leap.nvim",
+        "ggandor/leap.nvim", -- jump to where you're looking with ~4 keys
          dependencies = {
           "tpope/vim-repeat",
         },
       },
       "Mofiqul/vscode.nvim",
-      "Olical/conjure",
+      "Olical/conjure", -- nREPL support for tons of langs
+      {
+        "guns/vim-sexp", -- lisp s-expression mappings 
+        "tpope/vim-sexp-mappings-for-regular-people", 
+      },
       "williamboman/mason.nvim", -- installs language servers (:MasonInstall my-lsp)
       "tpope/vim-surround", -- editing tool for dealing with parens, html tags, etc.
       "nvim-treesitter/nvim-treesitter", -- language parsing support, used by conjure but not a hard dep
@@ -61,6 +65,16 @@ vim.keymap.set({'n', 'x', 'o'}, 'S',  '<Plug>(leap-backward)')
 vim.keymap.set({'n', 'x', 'o'}, 'gs', '<Plug>(leap-from-window)')
 vim.api.nvim_set_hl(0, 'LeapBackdrop', { link = 'Comment' })
 vim.api.nvim_set_hl(0, 'LeapLabel', { link = 'Search' })
+
+-- Netrw (directory browser) mappings.
+vim.api.nvim_create_autocmd('filetype', {
+  pattern = 'netrw',
+  desc = 'Override ntrw mappings to use Leap motions',
+  callback = function()
+    vim.keymap.set({'n'}, 's', '<Plug>(leap-forward)', {remap = true, buffer = true})
+    vim.keymap.set({'n'}, 'S', '<Plug>(leap-backward)', {remap = true, buffer = true})
+  end
+})
 
 require("config.nvim-cmp")
 

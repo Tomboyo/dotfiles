@@ -8,13 +8,11 @@
 (let [(ok? lsp) (pcall #(require :lspconfig))]
   (when ok?
     (lsp.clojure_lsp.setup {})
-    (lsp.ts_server.setup {})
-;    (lsp.tsserver.setup {})
-    (lsp.pylsp.setup {})
     (lsp.bashls.setup {})
     (lsp.lua_ls.setup
       {:cmd ["lua-language-server"]
        :settings {:Lua {:telemetry {:enable false}}}})
+    (lsp.fennel_language_server.setup {})
 
     ;; https://www.chrisatmachine.com/Neovim/27-native-lsp/
     (map :gd "lua vim.lsp.buf.definition()")

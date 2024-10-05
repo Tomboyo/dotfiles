@@ -54,7 +54,10 @@ require("lazy").setup({
   checker = { enabled = true },
 })
 
+-- Color theme plugin.
 require("vscode").load("dark")
+
+-- Provides :MasonInstall to install language servers.
 require("mason").setup()
 
 -- Leap configs
@@ -76,5 +79,16 @@ vim.api.nvim_create_autocmd('filetype', {
   end
 })
 
+-- Completion support.
 require("config.nvim-cmp")
 
+-- Set up code action keybind. I think this is usually done by default but
+-- might depend on the lsp client (Conjure in this case).
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client.supports_method("textDocument/codeAction") then
+      vim.keymap.set({'n', 'i'}, 'gra', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+    end
+  end
+})

@@ -6,7 +6,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.o.expandtab = true
 vim.o.tabstop = 2    -- spaces per tab
-vim.o.shiftwidth = 2 -- spaces per indent level
+vim.o.shiftwidth = 1 -- spaces per indent level
+vim.o.textwidth = 80 -- max line length
 
 -- Setup lazy.nvim
 -- Make sure to setup `mapleader` and `maplocalleader` before

@@ -90,8 +90,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
     if client.supports_method("textDocument/codeAction") then
       vim.keymap.set({'n', 'i'}, 'gra', '<cmd>lua vim.lsp.buf.code_action()<CR>')
     end
+
+    -- Diagnostics
     vim.keymap.set({'n','i'}, '<C-W>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
     vim.keymap.set({'n'}, ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
     vim.keymap.set({'n'}, '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+
+
   end
 })

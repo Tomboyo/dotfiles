@@ -70,3 +70,17 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('lspconfig')['clojure_lsp'].setup {
   capabilities = capabilities
 }
+require('lspconfig')['pylsp'].setup {
+  capabilities = capabilities,
+  settings = {
+    pylsp = {
+      plugins = {
+        rope_autoimport = {
+          -- enable code actions and auto-imports (which can be selectively 
+          -- disabled)
+          enabled = true
+        }
+      }
+    }
+  }
+}

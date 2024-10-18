@@ -92,6 +92,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set({'n', 'i'}, 'gra', '<cmd>lua vim.lsp.buf.code_action()<CR>')
     end
 
+    -- Make gd perform lsp "go to definition"
+    vim.keymap.set({'n'}, 'gd', '<C-]>')
+
     -- Diagnostics
     vim.keymap.set({'n','i'}, '<C-W>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
     vim.keymap.set({'n'}, ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')

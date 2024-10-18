@@ -103,3 +103,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
   end
 })
+
+vim.api.nvim_create_user_command('Cljd',
+ function()
+  vim.cmd("Clj -J-Djdk.attach.allowAttachSelf")
+ end,
+ { nargs = 0 })

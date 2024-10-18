@@ -7,6 +7,8 @@
 !.config/nvim-bak/**
 !.config/nvim-wsl
 !.config/nvim-wsl/**
+# Manage packages on a per-system basis.
+.config/nvim-*/lazy-lock.json
 
 !.config/JetBrains/IdeaIC2023.1/keymaps/gnome-thsimmon.xml
 

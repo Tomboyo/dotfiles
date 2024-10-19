@@ -59,7 +59,7 @@
       :disable (fn [lang buf]
         (let [max-file-size (* 1024 1000) ; 1 MiB
               (ok? stats) (pcall vim.loop.fs_stat (vim.api.nvim_buf_get_name buf))]
-          (if (or (not ok?) (> stats.size max-file-size))
+          (if (and ok? (not (= nil stats)) (> stats.size max-file-size))
               (do (print "Highlighting disabled (file too large or error statting file)")
                   true)
               false)))

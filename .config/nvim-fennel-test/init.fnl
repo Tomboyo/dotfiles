@@ -30,7 +30,7 @@
 
 ;; session management
 (augroup! :sessions
-  [[VimLeave] * "mksession ~/.nvimsession"])
+  [[VimLeave] * "mksession! ~/.nvimsession"])
 ;;
 ;; Configure Leap
 ;; TODO: separate files

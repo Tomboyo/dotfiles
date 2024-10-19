@@ -28,6 +28,9 @@
 
 (import-macros {: map! : augroup!} :hibiscus.vim)
 
+;; session management
+(augroup! :sessions
+  [[VimLeave] * "mksession ~/.nvimsession"])
 ;;
 ;; Configure Leap
 ;; TODO: separate files

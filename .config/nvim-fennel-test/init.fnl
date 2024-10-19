@@ -14,6 +14,11 @@
 
       ;; Navigation
       :ggandor/leap.nvim
+      { 1 :nvim-telescope/telescope.nvim :branch :0.1.x
+        :dependencies [
+          :nvim-lua/plenary.nvim ; required
+	  :BurntSushi/ripgrep ; suggested
+        ]}
 
       ;; Language support
       {1 :nvim-treesitter/nvim-treesitter
@@ -75,3 +80,6 @@
     :indent { :enable true }
     :ensure_installed [:fennel]
     :auto_install true}))
+
+(require :config.telescope)
+

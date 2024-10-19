@@ -3,6 +3,8 @@
 !.config/
 !.config/nvim-*
 !.config/nvim-*/**
+# Ignore transpiled lua
+.config/nvim-*/lua/tangerine_vimrc.lua
 
 !.config/JetBrains/IdeaIC2023.1/keymaps/gnome-thsimmon.xml
 

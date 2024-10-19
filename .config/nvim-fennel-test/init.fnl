@@ -28,9 +28,14 @@
 
 (import-macros {: map! : augroup!} :hibiscus.vim)
 
-;; session management
-(augroup! :sessions
-  [[VimLeave] * "mksession! ~/.nvimsession"])
+;; per-profile session management
+(let [sfile (.. (vim.fn.stdpath :data) "/last.session")] 
+  (augroup! :sessions
+    [[VimLeave] * (.. "mksession! " sfile)])
+  (vim.api.nvim_create_user_command
+    :RestoreLastSession
+    (.. "source" sfile)
+    {}))
 ;;
 ;; Configure Leap
 ;; TODO: separate files

@@ -8,6 +8,10 @@ for dir in ~/.config/nvim-* ; do
 done
 
 select profile in ${profiles[@]}; do
-  NVIM_APPNAME="$profile" nvim $@
+  args="$@"
+  if [ "$#" -eq "0" ]; then
+    args="-S '~/.local/share/$NVIM_APPNAME/last.session'"
+  fi
+  NVIM_APPNAME="$profile" nvim $args
   break
 done

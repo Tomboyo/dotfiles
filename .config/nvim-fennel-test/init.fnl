@@ -4,27 +4,23 @@
 
 (local lazy (require :lazy))
 (lazy.setup {
-  :install {
-    :colorscheme [ :habamax ]
-  }
-  :checker {
-    :enabled true
-  }
-  :spec [
-    ;; Fennel support
-    :udayvir-singh/tangerine.nvim
-    :udayvir-singh/hibiscus.nvim
+    :spec [
+      ;; Fennel support
+      :udayvir-singh/tangerine.nvim
+      :udayvir-singh/hibiscus.nvim
 
-    ;; VSCode theme
-    :Mofiqul/vscode.nvim
+      ;; VSCode theme
+      :Mofiqul/vscode.nvim
 
-    ;; Navigation
-    :ggandor/leap.nvim
+      ;; Navigation
+      :ggandor/leap.nvim
 
-    ;; Language support
-    :nvim-treesitter/nvim-treesitter
-  ]
-})
+      ;; Language support
+      {1 :nvim-treesitter/nvim-treesitter
+       :build ":TSUpdate"}
+    ]   
+    :install {:colorscheme [:habamax]}
+    :checker { :enabled true }})
 
 ;; Apply color theme
 (local vscode (require :vscode))
@@ -55,19 +51,19 @@
 ;;
 ;; Treesitter
 ;;
-(local treesitter (require :nvim-treesitter))
-(treesitter.setup {
-  :ensure_installed [ :fennel ]
-  :auto_install true
-  :highlight {
-    :enable true
-    :disable (fn [lang buf]
-      (let [max-file-size (* 1000 1024) ; 1MiB
-	    (ok? stats) (pcall vim.loop.fs_stat (vim.api.nvim_buf_get_name buf))]
-	(if (or (not ok?) (> stats max-file-size))
-	    (do (print "File is too large. Treesitter highlighting disabled.")
-	        true)
-	    false)))
-  }
-})
-
+(let [treesitter (require :nvim-treesitter.configs)]
+  (treesitter.setup {
+    :highlight {
+      :enable true
+      ; Disable highlihgting on large files (> 1MiB)
+      :disable (fn [lang buf]
+        (let [max-file-size (* 1024 1000) ; 1 MiB
+              (ok? stats) (pcall vim.loop.fs_stat (vim.api.nvim_buf_get_name buf))]
+          (if (or (not ok?) (> stats.size max-file-size))
+              (do (print "Highlighting disabled (file too large or error statting file)")
+                  true)
+              false)))
+    }
+    :indent { :enable true }
+    :ensure_installed [:fennel]
+    :auto_install true}))

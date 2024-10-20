@@ -2,6 +2,9 @@
 (set vim.g.mapleader " ")
 (set vim.g.maplocalleader "\\")
 
+;; Confiure vim-sexp before it loads, otherwise it doesn't work.
+(require :config.sexp)
+
 (local lazy (require :lazy))
 (lazy.setup {
     :spec [
@@ -23,6 +26,10 @@
       ;; Language support
       {1 :nvim-treesitter/nvim-treesitter
        :build ":TSUpdate"}
+
+      ;; S-exp editing
+      [:guns/vim-sexp
+       :tpope/vim-sexp-mappings-for-regular-people]
     ]   
     :install {:colorscheme [:habamax]}
     :checker { :enabled true }})

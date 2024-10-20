@@ -45,7 +45,8 @@
 ;; Configure Leap
 ;; TODO: separate files
 
-; "l" for "leap."
+; [f]ind [l]eap. Builds on telescope's occupation of [f]ind for commands that
+; locate or go to distant things.
 (map! [nxo] :fl "<Plug>(leap)")
 (map! [nxo] :fL "<Plug>(leap-from-window)")
 

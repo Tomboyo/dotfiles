@@ -46,8 +46,8 @@
 ;; TODO: separate files
 
 ; "l" for "leap."
-(map! [nxo] :l "<Plug>(leap)")
-(map! [nxo] :L "<Plug>(leap-from-window)")
+(map! [nxo] :fl "<Plug>(leap)")
+(map! [nxo] :fL "<Plug>(leap-from-window)")
 
 ; (Highlights)
 (vim.api.nvim_set_hl 0 :LeapBackdrop {:link "Comment"})

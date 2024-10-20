@@ -31,6 +31,15 @@
 (local vscode (require :vscode))
 (vscode.load :dark)
 
+;;
+;; Options
+;;
+(set vim.o.expandtab true) ; convert tabs to spaces
+(set vim.o.tabstop 2)      ; spaces per tab
+(set vim.o.shiftwidth 2)   ; spaces per indent level
+(set vim.o.textwidth 80)   ; wrap column
+
+
 (import-macros {: map! : augroup!} :hibiscus.vim)
 
 ;; per-profile session management

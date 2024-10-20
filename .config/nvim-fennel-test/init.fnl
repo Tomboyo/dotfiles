@@ -20,7 +20,7 @@
       { 1 :nvim-telescope/telescope.nvim :branch :0.1.x
         :dependencies [
           :nvim-lua/plenary.nvim ; required
-	  :BurntSushi/ripgrep    ; suggested (perf)
+          :BurntSushi/ripgrep    ; suggested (perf)
         ]}
 
       ;; Language support

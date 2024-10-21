@@ -24,8 +24,18 @@
         ]}
 
       ;; Language support
-      {1 :nvim-treesitter/nvim-treesitter
+      [{1 :nvim-treesitter/nvim-treesitter
        :build ":TSUpdate"}
+       ; installs language servers
+       :williamboman/mason.nvim
+       :williamboman/mason-lspconfig.nvim
+       ; default configurations for language servers
+       :neovim/nvim-lspconfig
+       ; Specifically for java (using eclipse jdtls)
+       ; See also https://github.com/eclipse-jdtls/eclipse.jdt.ls#installation
+       ; See also https://download.eclipse.org/jdtls/milestones/1.40.0/
+       :mfussenegger/nvim-jdtls
+       ]
 
       ;; S-exp editing
       [:guns/vim-sexp
@@ -99,4 +109,16 @@
     :auto_install true}))
 
 (require :config.telescope)
+
+; Not using mason-lspconfig because it seems to have integration issues on my
+; machine.
+; Note: java lsp support through jdtls. Do not configure here.
+(let [mason (require :mason)
+      lspconfig (require :lspconfig)]
+  (mason.setup {})
+  (lspconfig.bashls.setup {})
+  (lspconfig.clojure_lsp.setup {})
+  (lspconfig.fennel_language_server.setup {}))
+
+(require :config.jdtls)
 

@@ -45,20 +45,12 @@
     :checker { :enabled true }})
 
 ;; Apply color theme
-(local vscode (require :vscode))
-(vscode.load :dark)
+(let [vscode (require :vscode)]
+  (vscode.load :dark))
 
-;;
-;; Options
-;;
-(set vim.o.expandtab true) ; convert tabs to spaces
-(set vim.o.tabstop 2)      ; spaces per tab
-(set vim.o.shiftwidth 2)   ; spaces per indent level
-(set vim.o.textwidth 80)   ; wrap column
+(require :config.options)
+
 (import-macros {: map! : augroup!} :hibiscus.vim)
-(set vim.opt.relativenumber true)
-(set vim.opt.number true)
-
 ;; per-profile session management
 (let [sfile (.. (vim.fn.stdpath :data) "/last.session")] 
   (augroup! :sessions

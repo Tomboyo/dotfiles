@@ -110,7 +110,8 @@
   (mason.setup {})
   (lspconfig.bashls.setup {})
   (lspconfig.clojure_lsp.setup {})
-  (lspconfig.fennel_language_server.setup {}))
+  (lspconfig.fennel_language_server.setup {})
+  (lspconfig.pylsp.setup {}))
 
 (require :config.jdtls)
 

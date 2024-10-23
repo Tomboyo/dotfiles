@@ -8,6 +8,6 @@ for dir in ~/.config/nvim-* ; do
 done
 
 select profile in ${profiles[@]}; do
-  NVIM_APPNAME="$profile" nvim "$@"
+  NVIM_APPNAME="$profile" nvim $@
   break
 done

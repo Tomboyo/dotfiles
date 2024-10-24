@@ -4,6 +4,7 @@
 
 (telescope.setup {
   :defaults {
+    :path_display {:shorten {:exclude [0 -1 -2 -3]} :truncate {}}
     :mappings {
       :n {
         "<C-p>" actions_layout.toggle_preview

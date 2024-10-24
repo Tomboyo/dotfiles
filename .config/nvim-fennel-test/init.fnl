@@ -98,8 +98,7 @@
                   true)
               false)))
     }
-    ; Doesn't match existing handstyle. Disable for now.
-    :indent { :enable false }
+    :indent { :enable true }
     :ensure_installed [:fennel]
     :auto_install true}))
 

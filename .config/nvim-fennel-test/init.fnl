@@ -51,6 +51,7 @@
   (vscode.load :dark))
 
 (require :config.options)
+(require :config.leap)
 
 (import-macros {: map! : augroup!} :hibiscus.vim)
 ;; per-profile session management
@@ -61,26 +62,6 @@
     :RestoreLastSession
     (.. "source" sfile)
     {}))
-;;
-;; Configure Leap
-;; TODO: separate files
-
-; [f]ind [l]eap. Builds on telescope's occupation of [f]ind for commands that
-; locate or go to distant things.
-(map! [nxo] :fl "<Plug>(leap)")
-(map! [nxo] :fL "<Plug>(leap-from-window)")
-
-; (Highlights)
-(vim.api.nvim_set_hl 0 :LeapBackdrop {:link "Comment"})
-(vim.api.nvim_set_hl 0 :LeapLabel {:link "Search"})
-
-; Netrw mappings. TODO: I have heard Netrw is trash for bad people.
-(augroup! :netrw
-  [[:filetype :desc "Use Leap in netrw"]
-  :netrw
-  (fn []
-    (map! [n] :l "<Plug>(leap)")
-    (map! [n] :L "<Plug>(leap-from-window)"))])
 
 ;;
 ;; Treesitter

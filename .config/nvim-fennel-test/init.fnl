@@ -54,7 +54,18 @@
 (require :config.leap)
 
 (import-macros {: map! : augroup!} :hibiscus.vim)
+
+;;
+;; lazyvim
+;;
+(vim.api.nvim_create_user_command
+  :LZGit
+  "tabnew term://lazygit"
+  {})
+
+;;
 ;; per-profile session management
+;;
 (let [sfile (.. (vim.fn.stdpath :data) "/last.session")] 
   (augroup! :sessions
     [[VimLeave] * (.. "mksession! " sfile)])

@@ -14,5 +14,5 @@
   [[:filetype :desc "Use Leap in netrw"]
   :netrw
   (fn []
-    (map! [n] :l "<Plug>(leap)")
-    (map! [n] :L "<Plug>(leap-from-window)"))])
+    (map! [n] :fl "<Plug>(leap)")
+    (map! [n] :fL "<Plug>(leap-from-window)"))])

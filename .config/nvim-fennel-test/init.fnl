@@ -40,6 +40,8 @@
       ;; S-exp editing
       [:guns/vim-sexp
        :tpope/vim-sexp-mappings-for-regular-people]
+
+      :tpope/vim-surround
     ]   
     :install {:colorscheme [:habamax]}
     :checker { :enabled true }})

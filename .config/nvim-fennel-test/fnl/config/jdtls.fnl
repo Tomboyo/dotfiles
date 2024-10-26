@@ -1,6 +1,14 @@
 (import-macros {: map! : augroup!} :hibiscus.vim)
 
+(when (= (os.getenv :JDTLS_HOME) nil)
+  (print "Missing JDTLS_HOME env var"))
+
 ; See https://github.com/mfussenegger/nvim-jdtls/tree/master?tab=readme-ov-file#usage
+(let [jdtls (require :jdtls)]
+  (jdtls.start_or_attach
+    {:cmd [(.. (os.getenv :JDTLS_HOME) "/bin/jdtls")]
+     :root_dir (vim.fs.dirname
+                 (. (vim.fs.find [:gradlew :.git :mvnw] {:upward true}) 1))}))
 
 (fn mappings []
   (let [jdtls (require :jdtls)]

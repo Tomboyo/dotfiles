@@ -4,11 +4,12 @@
   (print "Missing JDTLS_HOME env var"))
 
 ; See https://github.com/mfussenegger/nvim-jdtls/tree/master?tab=readme-ov-file#usage
-(let [jdtls (require :jdtls)]
-  (jdtls.start_or_attach
-    {:cmd [(.. (os.getenv :JDTLS_HOME) "/bin/jdtls")]
-     :root_dir (vim.fs.dirname
-                 (. (vim.fs.find [:gradlew :.git :mvnw] {:upward true}) 1))}))
+(fn startOrAttach []
+  (let [jdtls (require :jdtls)]
+    (jdtls.start_or_attach
+      {:cmd [(.. (os.getenv :JDTLS_HOME) "/bin/jdtls")]
+       :root_dir (vim.fs.dirname
+                   (. (vim.fs.find [:gradlew :.git :mvnw] {:upward true}) 1))})))
 
 (fn mappings []
   (let [jdtls (require :jdtls)]
@@ -19,8 +20,12 @@
     (map! [v :buffer :noremap] "<LocalLeader>caec" '(jdtls.extract_constant true))
     (map! [v :buffer :noremap] "<LocalLeader>caem" '(jdtls.extract_method true))))
 
+(fn setup []
+  (startOrAttach)
+  (mappings))
+
 (augroup! :jdtls-custom-mappings
-  [[FileType] [:java] 'mappings])
+  [[FileType] [:java] 'setup])
 
 ; " If using nvim-dap
 ; " This requires java-debug and vscode-java-test bundles, see install steps in this README further below.

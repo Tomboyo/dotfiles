@@ -35,12 +35,14 @@
        ; See also https://github.com/eclipse-jdtls/eclipse.jdt.ls#installation
        ; See also https://download.eclipse.org/jdtls/milestones/1.40.0/
        :mfussenegger/nvim-jdtls
-       ]
+       ; Conjure, for REPL langs like clj and py
+       :olical/conjure]
 
       ;; S-exp editing
       [:guns/vim-sexp
        :tpope/vim-sexp-mappings-for-regular-people]
 
+      ;; Add, change, and remove surrounding (), {}, etc.
       :tpope/vim-surround
     ]   
     :install {:colorscheme [:habamax]}

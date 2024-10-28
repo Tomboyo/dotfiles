@@ -120,10 +120,10 @@
                      capable client.server_capabilities]
                  (when capable.hoverProvider
                    (vim.keymap.set :n :K vim.lsp.buf.hover {:buffer args.buf}))
-                 ; Not bothering with declaration because it doesn't usually
-                 ; work, and because definiton achieves the same result.
-                 (when capable.definitionProvider
+                 (when capable.declarationProvider
                    (vim.keymap.set :n :gd vim.lsp.buf.definition {:buffer args.buf :noremap true}))
+                 (when capable.definitionProvider
+                   (vim.keymap.set :n :gD vim.lsp.buf.definition {:buffer args.buf :noremap true}))
                  (when capable.callHierarchyProvider
                    (vim.keymap.set :n :fi "<cmd>Telescope lsp_incoming_calls<cr>" {:buffer args.buf :noremap true})
                    (vim.keymap.set :n :fo "<cmd>Telescope lsp_outgoing_calls<cr>" {:buffer args.buf :noremap true}))

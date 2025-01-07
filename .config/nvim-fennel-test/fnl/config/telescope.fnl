@@ -21,7 +21,10 @@
   }
 })
 
+; https://github.com/nvim-telescope/telescope-live-grep-args.nvim
+(telescope.load_extension :live_grep_args)
+
 (map! [n] :ff "<cmd>Telescope find_files<CR>")
-(map! [n] :fg "<cmd>Telescope live_grep<CR>")
+(map! [n] :fg ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 (map! [n] :fb "<cmd>Telescope buffers<CR>")
 (map! [n] :fh "<cmd>Telescope help_tags<CR>")

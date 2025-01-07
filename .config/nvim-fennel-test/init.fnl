@@ -1,6 +1,6 @@
 ;; Set [local]leader before requiring lazy.
-(set vim.g.mapleader " ")
-(set vim.g.maplocalleader "\\")
+(set vim.g.mapleader "\\")
+(set vim.g.maplocalleader " ")
 
 ;; Confiure vim-sexp before it loads, otherwise it doesn't work.
 (require :config.sexp)
@@ -21,6 +21,7 @@
         :dependencies [
           :nvim-lua/plenary.nvim ; required
           :BurntSushi/ripgrep    ; suggested (perf)
+          :nvim-telescope/telescope-live-grep-args.nvim ; pass grep args to live_grep
         ]}
 
       ;; Language support
@@ -34,9 +35,14 @@
        ; Specifically for java (using eclipse jdtls)
        ; See also https://github.com/eclipse-jdtls/eclipse.jdt.ls#installation
        ; See also https://download.eclipse.org/jdtls/milestones/1.40.0/
-       :mfussenegger/nvim-jdtls
+       ; :mfussenegger/nvim-jdtls
+       :nvim-java/nvim-java
        ; Conjure, for REPL langs like clj and py
-       :olical/conjure]
+       :olical/conjure
+       ; nREPL support to go with Conjure
+       [:tpope/vim-dispatch
+       :clojure-vim/vim-jack-in
+       :radenling/vim-dispatch-neovim]]
 
       ;; S-exp editing
       [:guns/vim-sexp
@@ -98,6 +104,11 @@
 
 (require :config.telescope)
 
+; From nvim-java. Must come before lspconfig.
+(let [java (require :java)]
+  (java.setup
+    {:spring_boot_tools {:enable false}}))
+
 ; Not using mason-lspconfig because it seems to have integration issues on my
 ; machine.
 ; Note: java lsp support through jdtls. Do not configure here.
@@ -107,9 +118,8 @@
   (lspconfig.bashls.setup {})
   (lspconfig.clojure_lsp.setup {})
   (lspconfig.fennel_language_server.setup {})
-  (lspconfig.pylsp.setup {}))
-
-(require :config.jdtls)
+  (lspconfig.pylsp.setup {})
+  (lspconfig.jdtls.setup {}))
 
 ; Language support keybinds
 ; Depends on: Treesitter, LSP, JDTLS
@@ -118,6 +128,9 @@
   {:callback (fn [args]
                (let [client (vim.lsp.get_client_by_id args.data.client_id)
                      capable client.server_capabilities]
+                 ;TODO: when
+                 (vim.keymap.set :n "<LocalLeader>ca" (fn [] (vim.lsp.buf.code_action {:apply false})))
+
                  (when capable.hoverProvider
                    (vim.keymap.set :n :K vim.lsp.buf.hover {:buffer args.buf}))
                  (when capable.declarationProvider
@@ -129,4 +142,6 @@
                    (vim.keymap.set :n :fo "<cmd>Telescope lsp_outgoing_calls<cr>" {:buffer args.buf :noremap true}))
                  (when capable.implementationProvider
                    (vim.keymap.set :n :fim "<cmd>Telescope lsp_implementations<cr>" {:buffer args.buf :noremap true}))
+                 ; TODO: when
+                 (vim.keymap.set :n "<LocalLeader>e" "<cmd>lua vim.diagnostic.open_float(nil, {focus=false, scope=\"cursor\"})<CR>" {:buffer args.bug :noremap true})
                  ))})

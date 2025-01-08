@@ -3,20 +3,27 @@
 " You can find a list of commands here: https://jb.gg/h38q75
 " Find more examples here: https://jb.gg/share-ideavimrc
 
-source ~/.config/nvim/init.vim
+call plug#begin()
+Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
+call plug#end()
+
+" Easymotion
+nmap <leader><leader>s <Plug>(easymotion-s)
+
+" Make the current working directory follow the active buffer
+set incsearch
+set shiftwidth=2 smarttab
+" Use spaces instead of tabs for auto-indentation
+set expandtab
+" Lets you use the mouse
+set mouse=a
+set number relativenumber
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" CTRL-Shift-O to reload
-map \d <Action>(QuickJavaDoc)
 map \p <Action>(ParameterInfo)
 map \c <Action>(GotoClass)
 imap <C-n> <ESC>:action HippieCompletion<CR>a
 imap <C-p> <ESC>:action HippieBackwardCompletion<CR>a
-"" Map \r to the Reformat Code action
-""map \r <Action>(ReformatCode)
 
-"" Map <leader>d to start debug
-"map <leader>d <Action>(Debug)
-
-"" Map \b to toggle the breakpoint on the current line
-"map \b <Action>(ToggleLineBreakpoint)

@@ -2,13 +2,10 @@
 
 !.config/
 
-!.config/nvim-*
-!.config/nvim-*/**
+!.config/nvim
+!.config/nvim/**
 # Ignore transpiled lua
-.config/nvim-*/lua
+.config/nvim/lua
 
 !.config/JetBrains/IdeaIC2023.1/keymaps/gnome-thsimmon.xml
-
-!bin
-!bin/vv
 

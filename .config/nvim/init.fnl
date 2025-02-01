@@ -9,6 +9,9 @@
 (local lazy (require :lazy))
 (lazy.setup {
     :spec [
+      ; structural text editing (like vim-sexp)
+      :tomboyo/slurp.nvim
+
       ;; Fennel support
       :udayvir-singh/tangerine.nvim
       :udayvir-singh/hibiscus.nvim
@@ -45,10 +48,6 @@
         :clojure-vim/vim-jack-in
         :radenling/vim-dispatch-neovim]]
 
-      ;; S-exp editing
-      [:guns/vim-sexp
-       :tpope/vim-sexp-mappings-for-regular-people]
-
       ;; Add, change, and remove surrounding (), {}, etc.
       :tpope/vim-surround
     ]   
@@ -63,4 +62,4 @@
 (require :config.treesitter)
 (require :config.telescope)
 (require :config.lsp)
-
+(require :config.slurp)

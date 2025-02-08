@@ -50,6 +50,9 @@
 
       ;; Add, change, and remove surrounding (), {}, etc.
       :tpope/vim-surround
+
+      ;; Git
+      :airblade/vim-gitgutter
     ]   
     :install {:colorscheme [:habamax]}
     :checker { :enabled true }})

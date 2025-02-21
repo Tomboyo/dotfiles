@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+tee <&0 | clip.exe
+exit 0

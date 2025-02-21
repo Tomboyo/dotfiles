@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+powershell.exe Get-Clipboard | sed 's/\r$//' | sed 's/\n$//'
+exit 0

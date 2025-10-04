@@ -7,5 +7,11 @@
 # Ignore transpiled lua
 .config/nvim/lua
 
-!.config/JetBrains/IdeaIC2023.1/keymaps/gnome-thsimmon.xml
+# Idea keymaps stored in a root folder. Symlink accordingly, e.g:
+#   ln -s ~/.config/KetBrains/keymaps/gnome-thsimmon.xml \
+#         ~/.config/JetBrains/IdeaIC2023.1/keymaps/gnome-thsimmon.xml
+!.config/JetBrains
+!.config/JetBrains/keymaps
+!.config/JetBrains/keymaps/**
+
 

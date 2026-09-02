@@ -28,10 +28,6 @@
   <action id="EditorCloneCaretBelow">
     <keyboard-shortcut first-keystroke="shift alt down" />
   </action>
-  <action id="EditorDown">
-    <keyboard-shortcut first-keystroke="down" />
-    <keyboard-shortcut first-keystroke="ctrl n" />
-  </action>
   <action id="EditorForwardParagraph">
     <keyboard-shortcut first-keystroke="page_down" />
   </action>
@@ -54,10 +50,6 @@
     <keyboard-shortcut first-keystroke="alt e" />
   </action>
   <action id="EditorUnSelectWord" />
-  <action id="EditorUp">
-    <keyboard-shortcut first-keystroke="up" />
-    <keyboard-shortcut first-keystroke="ctrl p" />
-  </action>
   <action id="ExpandRegion">
     <keyboard-shortcut first-keystroke="ctrl add" />
     <keyboard-shortcut first-keystroke="ctrl equals" />
